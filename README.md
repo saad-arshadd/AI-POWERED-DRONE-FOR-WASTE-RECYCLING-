@@ -25,23 +25,9 @@ http://cocodataset.org/#format-data
 
 TACO is still relatively small, but it is growing. Stay tuned!
 
-# Publications
 
-For more details check our paper: https://arxiv.org/abs/2003.06975
 
-If you use this dataset and API in a publication, please cite us using: &nbsp;
-```
-@article{taco2020,
-    title={TACO: Trash Annotations in Context for Litter Detection},
-    author={Pedro F Proença and Pedro Simões},
-    journal={arXiv preprint arXiv:2003.06975},
-    year={2020}
-}
-```
 
-# News
-**December 20, 2019** - Added more 785 images and 2642 litter segmentations. <br/>
-**November 20, 2019** - TACO is officially open for new annotations: http://tacodataset.org/annotate
 
 # Getting started
 
@@ -56,15 +42,7 @@ Additionaly, to use ``demo.pynb``, you will also need [coco python api](https://
 pip3 install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 ```
 
-### Download
 
-To download the dataset images simply issue
-```
-python3 download.py
-```
-Alternatively, download from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3587843.svg)](https://doi.org/10.5281/zenodo.3587843)
-
-Our API contains a jupyter notebook ``demo.pynb`` to inspect the dataset and visualize annotations.
 
 **Unlabeled data**
 
@@ -80,16 +58,7 @@ You can use the same command to download the respective images:
 python3 download.py --dataset_path ./data/annotations_unofficial.json
 ```
 
-### Trash Detection
-
-The implementation of [Mask R-CNN by Matterport](https://github.com/matterport/Mask_RCNN)  is included in ``/detector``
-with a few modifications. Requirements are the same. Before using this, the dataset needs to be split. You can either donwload our [weights and splits](https://github.com/pedropro/TACO/releases/tag/1.0) or generate these from scratch using the `split_dataset.py` script to generate 
-N random train, val, test subsets. For example, run this inside the directory `detector`:
-```
-python3 split_dataset.py --dataset_dir ../data
-```
-
-For further usage instructions, check ``detector/detector.py``.
+.
 
 As you can see [here](http://tacodataset.org/stats), most of the original classes of TACO have very few annotations, therefore these must be either left out or merged together. Depending on the problem, ``detector/taco_config`` contains several class maps to target classes, which maintain the most dominant classes, e.g., Can, Bottles and Plastic bags. Feel free to make your own classes.
 
